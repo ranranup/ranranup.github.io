@@ -105,24 +105,38 @@
       
         
         <ol>
-<li><p>封装丑陋的原型方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//封装丑陋的原型方法</span></div><div class="line"><span class="built_in">Function</span>.prototype.method = <span class="function"><span class="keyword">function</span>(<span class="params">name, func</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.prototype[name] = func;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>Boolean()<br>对任何数据类型的值调用Boolean()函数，都会返回一个Boolean值，返回值是true和false取决于要转换值的数据类型和其实际值。  <ul>
+<li>Boolean <ul>
+<li>false 转化为 false  </li>
+</ul>
 </li>
-<li><p>排序算法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 1、插入排序</div><div class="line">*   从无序区的第一个元素开始和它前面有序区的元素进行比较，</div><div class="line">    如果比前面的元素小，那么前面的元素向后移动，</div><div class="line">    否则就将此元素插入到相应的位置。</div><div class="line">* */</div><div class="line"><span class="built_in">Array</span>.method(<span class="string">'insertSort'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> len = <span class="keyword">this</span>.length, i,j,tmp;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;len;i++) &#123;</div><div class="line">        tmp = <span class="keyword">this</span>[i];</div><div class="line">        j = i - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; tmp &lt; <span class="keyword">this</span>[j]) &#123;</div><div class="line">            <span class="keyword">this</span>[j+<span class="number">1</span>] = <span class="keyword">this</span>[j];</div><div class="line">            j--;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>[j+<span class="number">1</span>] = tmp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<li>String<ul>
+<li>“” 转化为 false  </li>
+</ul>
 </li>
-<li><p>测试</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//测试方法</span></div><div class="line"><span class="keyword">var</span> out = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//测试数据</span></div><div class="line"><span class="keyword">var</span> test = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">8</span>];</div><div class="line">out(test.insertSort(),<span class="string">'insertSort'</span>);</div></pre></td></tr></table></figure>
+<li>Number<ul>
+<li>0 和 NaN 转化为 false </li>
+</ul>
+</li>
+<li>Object<ul>
+<li>null 转化为 false</li>
+</ul>
+</li>
+<li>Undefined<ul>
+<li>undefined 转化为 false</li>
+<li>n/a 转化为 true（n/a 或 N/A, not application ,不适用）</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
-<p><a href="http://www.cnblogs.com/JChen666/p/3360853.html" target="_blank" rel="external">http://www.cnblogs.com/JChen666/p/3360853.html</a></p>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="citf6b2lc0002qgdoquxotn3p" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="citf6k9fa0002osdobz4dmy45" class="article-share-link">Share</a>
         
       </div>
     </footer>
@@ -172,7 +186,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="citf6b2ls0003qgdoqkd73yaw" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="citf6k9fd0003osdosajg0u3s" class="article-share-link">Share</a>
         
       </div>
     </footer>
@@ -228,7 +242,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="citf6b2lc0001qgdo8ssf3ott" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="citf6k9ez0000osdowdy3kam1" class="article-share-link">Share</a>
         
       </div>
     </footer>
@@ -281,7 +295,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/hello-world/" data-id="citf6b2lc0000qgdowcyd2lat" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/09/22/hello-world/" data-id="citf6k9f70001osdoencdeb4f" class="article-share-link">Share</a>
         
       </div>
     </footer>
