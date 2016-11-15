@@ -5,72 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
-  <title>javascript 数据转换 | ranran的博客</title>
+  <title>javascript 内建属性 | ranran的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Boolean()对任何数据类型的值调用Boolean()函数，都会返回一个Boolean值，返回值是true和false取决于要转换值的数据类型和其实际值。  
-Boolean 
-false 转化为 false  
+  <meta name="description" content="ECMAScript中有两种属性：数据属性和访问器属性
+数据属性  数据属性指包含一个数据值的位置，可在该位置读取或写入值，该属性有4个供述其行为的特性:
 
+[[configurable]]:表示能否使用delete操作符删除从而重新定义，或能否修改为访问器属性。默认为true;  
 
-String
-“” 转化为 false  
+[[Enumberable]]:表示是否可通过for-in循环返回属性。默认true;  
 
-
-Number
-0 和 NaN 转化为 false 
-
-
-Object
-null 转化为 false
-
-
-Undefined
-un">
+[[Writabl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript 数据转换">
-<meta property="og:url" content="http://yoursite.com/2016/09/22/数据转换/index.html">
+<meta property="og:title" content="javascript 内建属性">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/javascript内建属性/index.html">
 <meta property="og:site_name" content="ranran的博客">
-<meta property="og:description" content="Boolean()对任何数据类型的值调用Boolean()函数，都会返回一个Boolean值，返回值是true和false取决于要转换值的数据类型和其实际值。  
-Boolean 
-false 转化为 false  
+<meta property="og:description" content="ECMAScript中有两种属性：数据属性和访问器属性
+数据属性  数据属性指包含一个数据值的位置，可在该位置读取或写入值，该属性有4个供述其行为的特性:
 
+[[configurable]]:表示能否使用delete操作符删除从而重新定义，或能否修改为访问器属性。默认为true;  
 
-String
-“” 转化为 false  
+[[Enumberable]]:表示是否可通过for-in循环返回属性。默认true;  
 
-
-Number
-0 和 NaN 转化为 false 
-
-
-Object
-null 转化为 false
-
-
-Undefined
-un">
-<meta property="og:updated_time" content="2016-09-23T03:17:48.264Z">
+[[Writabl">
+<meta property="og:updated_time" content="2016-11-15T07:58:45.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript 数据转换">
-<meta name="twitter:description" content="Boolean()对任何数据类型的值调用Boolean()函数，都会返回一个Boolean值，返回值是true和false取决于要转换值的数据类型和其实际值。  
-Boolean 
-false 转化为 false  
+<meta name="twitter:title" content="javascript 内建属性">
+<meta name="twitter:description" content="ECMAScript中有两种属性：数据属性和访问器属性
+数据属性  数据属性指包含一个数据值的位置，可在该位置读取或写入值，该属性有4个供述其行为的特性:
 
+[[configurable]]:表示能否使用delete操作符删除从而重新定义，或能否修改为访问器属性。默认为true;  
 
-String
-“” 转化为 false  
+[[Enumberable]]:表示是否可通过for-in循环返回属性。默认true;  
 
-
-Number
-0 和 NaN 转化为 false 
-
-
-Object
-null 转化为 false
-
-
-Undefined
-un">
+[[Writabl">
   
     <link rel="alternative" href="/atom.xml" title="ranran的博客" type="application/atom+xml">
   
@@ -135,10 +102,10 @@ un">
 </header>
 
     <div class="outer">
-      <section id="main"><article id="post-数据转换" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-javascript内建属性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <h3 href="/2016/09/22/数据转换/" class="article-date">
-  <time datetime="2016-09-22T14:10:57.231Z" itemprop="datePublished">2016-09-22</time>
+    <h3 href="/2016/11/15/javascript内建属性/" class="article-date">
+  <time datetime="2016-11-15T07:28:35.341Z" itemprop="datePublished">2016-11-15</time>
 </h3>
     
   </div>
@@ -151,7 +118,7 @@ un">
         
   
     <h1 class="article-title" itemprop="name">
-      javascript 数据转换
+      javascript 内建属性
     </h1>
   
 
@@ -160,39 +127,32 @@ un">
     <div class="article-entry" itemprop="articleBody">
       
         
-        <ol>
-<li>Boolean()<br>对任何数据类型的值调用Boolean()函数，都会返回一个Boolean值，返回值是true和false取决于要转换值的数据类型和其实际值。  <ul>
-<li>Boolean <ul>
-<li>false 转化为 false  </li>
-</ul>
+        <h3 id="ECMAScript中有两种属性：数据属性和访问器属性"><a href="#ECMAScript中有两种属性：数据属性和访问器属性" class="headerlink" title="ECMAScript中有两种属性：数据属性和访问器属性"></a>ECMAScript中有两种属性：数据属性和访问器属性</h3><ul>
+<li><p>数据属性<br>  <em>数据属性指包含一个数据值的位置，可在该位置读取或写入值，该属性有4个供述其行为的特性:</em></p>
+<ol>
+<li><p>[[configurable]]:表示能否使用delete操作符删除从而重新定义，或能否修改为访问器属性。默认为true;  </p>
 </li>
-<li>String<ul>
-<li>“” 转化为 false  </li>
-</ul>
+<li><p>[[Enumberable]]:表示是否可通过for-in循环返回属性。默认true;  </p>
 </li>
-<li>Number<ul>
-<li>0 和 NaN 转化为 false </li>
-</ul>
+<li><p>[[Writable]]:表示是否可修改属性的值。默认true;  </p>
 </li>
-<li>Object<ul>
-<li>null 转化为 false</li>
-</ul>
-</li>
-<li>Undefined<ul>
-<li>undefined 转化为 false</li>
-<li>n/a 转化为 true（n/a 或 N/A, not application ,不适用）</li>
-</ul>
-</li>
-</ul>
+<li><p>[[Value]]:包含该属性的数据值。读取/写入都是该值。默认为undefined；如上面实例对象Person中定义了name属性，其值为’wenzi’,对该值的修改都反正在这个位置  </p>
+<p>要修改对象属性的默认特征（默认都为true)，可调用Object.defineProperty()方法，<br>它接收三个参数：属性所在对象，属性名和一个描述符对象<br>必须是：configurable、enumberable、writable和value,可设置一个或多个值</p>
 </li>
 </ol>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> person = &#123;&#125;;  </div><div class="line"><span class="built_in">Object</span>.defineProperty(</div><div class="line">	person, <span class="string">'name'</span>, &#123;  </div><div class="line">	<span class="attr">configurable</span>: <span class="literal">false</span>, <span class="comment">// 不可删除，且不能修改为访问器属性  </span></div><div class="line">	writable: <span class="literal">false</span>, <span class="comment">// 不可修改  </span></div><div class="line">	value: <span class="string">'wenzi'</span> <span class="comment">// name的值为wenzi  </span></div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// wenzi    </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">delete</span> person.name); <span class="comment">// false，无法删除    </span></div><div class="line">person.name = <span class="string">'lily'</span>;   </div><div class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// wenzi</span></div></pre></td></tr></table></figure>
+<ul>
+<li>访问器属性<br>  <em>访问器属性</em>   </li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civj7seoa0004ecdoqmvfu3oz" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civj7seo20001ecdo21ihomi5" class="article-share-link">Share</a>
         
       </div>
     </footer>
@@ -203,19 +163,10 @@ un">
     
 <nav id="article-nav">
   
-    <a href="/2016/10/30/MarkdownPro2安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          MarkdownPro2安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/22/动态下拉框/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/10/30/MarkdownPro2安装/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">动态下拉框</div>
+      <div class="article-nav-title">MarkdownPro2安装</div>
     </a>
   
 </nav>
