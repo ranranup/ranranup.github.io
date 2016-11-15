@@ -27,7 +27,7 @@
 [[Enumberable]]:表示是否可通过for-in循环返回属性。默认true;  
 
 [[Writabl">
-<meta property="og:updated_time" content="2016-11-15T07:58:45.120Z">
+<meta property="og:updated_time" content="2016-11-15T08:08:13.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 内建属性">
 <meta name="twitter:description" content="ECMAScript中有两种属性：数据属性和访问器属性
@@ -142,7 +142,7 @@
 </ol>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> person = &#123;&#125;;  </div><div class="line"><span class="built_in">Object</span>.defineProperty(</div><div class="line">	person, <span class="string">'name'</span>, &#123;  </div><div class="line">	<span class="attr">configurable</span>: <span class="literal">false</span>, <span class="comment">// 不可删除，且不能修改为访问器属性  </span></div><div class="line">	writable: <span class="literal">false</span>, <span class="comment">// 不可修改  </span></div><div class="line">	value: <span class="string">'wenzi'</span> <span class="comment">// name的值为wenzi  </span></div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// wenzi    </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">delete</span> person.name); <span class="comment">// false，无法删除    </span></div><div class="line">person.name = <span class="string">'lily'</span>;   </div><div class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// wenzi</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;&#125;;  </div><div class="line"><span class="built_in">Object</span>.defineProperty(</div><div class="line">	person, <span class="string">'name'</span>, &#123;  </div><div class="line">	<span class="attr">configurable</span>: <span class="literal">false</span>, <span class="comment">// 不可删除，且不能修改为访问器属性  </span></div><div class="line">	writable: <span class="literal">false</span>, <span class="comment">// 不可修改  </span></div><div class="line">	value: <span class="string">'wenzi'</span> <span class="comment">// name的值为wenzi  </span></div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// wenzi    </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">delete</span> person.name); <span class="comment">// false，无法删除    </span></div><div class="line">person.name = <span class="string">'lily'</span>;   </div><div class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// wenzi</span></div></pre></td></tr></table></figure>
 <ul>
 <li>访问器属性<br>  <em>访问器属性</em>   </li>
 </ul>
@@ -152,7 +152,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civj7seo20001ecdo21ihomi5" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civj7x9dc0003mgdogoq37reo" class="article-share-link">Share</a>
         
       </div>
     </footer>
