@@ -119,14 +119,14 @@
 <p>下面我们来创建一个Triangle对象，并测试其方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="keyword">new</span> Triangle(<span class="number">5</span>,<span class="number">10</span>);</div><div class="line">my.getArea();<span class="comment">//25</span></div><div class="line">my.toString();<span class="comment">//Triangle</span></div></pre></td></tr></table></figure>
 <p>通过这种方法，我么就可以在保持原型链的基础上使父对象的属性摆脱子对象的影响了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">my.__proto__.__proto__.__proto__.constructor;<span class="comment">//Shape()</span></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Shape();</div><div class="line">s.name;<span class="comment">//Shape</span></div></pre></td></tr></table></figure></p>
-<font color="#ff0000">注意：尽量将要共享的属性和方法添加到原型中，然后只围绕原型构建继承关系，不鼓励将对象的自身属性纳入继承关系，其背后的根源在于</font>
+<font color="#ff0000">注意：尽量将要共享的属性和方法添加到原型中，然后只围绕原型构建继承关系，不鼓励将对象的自身属性纳入继承关系，其背后的根源在于如果对象自身属性被设定得太过具体，会令其丧失可重用性。</font>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解/" data-id="civme6wok0003l8do1q13wznf" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解/" data-id="civme9njq0003rkdo6nalxgjm" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -209,7 +209,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civme6woa0001l8dovwkbyxzk" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civme9njf0001rkdoxbzqeis4" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -289,7 +289,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civme6wo40000l8doy46vusiz" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civme9nj70000rkdod87xbykd" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -359,7 +359,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civme6wp10005l8dojscd5cdt" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civme9nkg0005rkdo9n94u18a" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -409,7 +409,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civme6wom0004l8donhzypo9y" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civme9njt0004rkdon0pm9jyt" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -465,7 +465,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civme6wof0002l8do71rgjzg7" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civme9njk0002rkdoy1523fkb" class="article-share-link">分享到</a>
         
       </div>
     </footer>

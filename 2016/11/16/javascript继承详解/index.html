@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/11/16/javascript继承详解/index.html">
 <meta property="og:site_name" content="ranran的博客">
 <meta property="og:description" content="一、原型链事先定义三个对象：Shape、TwoDShape、Triangle1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162function Shape() &amp;#123;  this.name = &quot;shape&quot;;">
-<meta property="og:updated_time" content="2016-11-17T13:28:08.756Z">
+<meta property="og:updated_time" content="2016-11-17T13:30:03.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 继承详解">
 <meta name="twitter:description" content="一、原型链事先定义三个对象：Shape、TwoDShape、Triangle1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162function Shape() &amp;#123;  this.name = &quot;shape&quot;;">
@@ -121,14 +121,14 @@
 <p>下面我们来创建一个Triangle对象，并测试其方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="keyword">new</span> Triangle(<span class="number">5</span>,<span class="number">10</span>);</div><div class="line">my.getArea();<span class="comment">//25</span></div><div class="line">my.toString();<span class="comment">//Triangle</span></div></pre></td></tr></table></figure>
 <p>通过这种方法，我么就可以在保持原型链的基础上使父对象的属性摆脱子对象的影响了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">my.__proto__.__proto__.__proto__.constructor;<span class="comment">//Shape()</span></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Shape();</div><div class="line">s.name;<span class="comment">//Shape</span></div></pre></td></tr></table></figure></p>
-<font color="#ff0000">注意：尽量将要共享的属性和方法添加到原型中，然后只围绕原型构建继承关系，不鼓励将对象的自身属性纳入继承关系，其背后的根源在于</font>
+<font color="#ff0000">注意：尽量将要共享的属性和方法添加到原型中，然后只围绕原型构建继承关系，不鼓励将对象的自身属性纳入继承关系，其背后的根源在于如果对象自身属性被设定得太过具体，会令其丧失可重用性。</font>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解/" data-id="civme6wok0003l8do1q13wznf" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解/" data-id="civme9njq0003rkdo6nalxgjm" class="article-share-link">分享到</a>
         
       </div>
     </footer>
