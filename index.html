@@ -113,14 +113,15 @@
 </ol>
 <p><em>改善上述代码</em></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Shape.prototype.name = <span class="string">"Shape"</span>;</div><div class="line">Shape.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">TwoDShape</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">    对原型对象进行扩展之前，先玩成相关的继承关系的构建，</div><div class="line">    否则TwoDShape.prototype中的后续内容有可能会抹掉我们</div><div class="line">    所继承来的东西</div><div class="line">*/</div><div class="line">TwoDShape.prototype = Shape.prototype;</div><div class="line">TwoDShape.prototype.constructor = TwoDShape;</div><div class="line">TwoDShape.prototype.name = <span class="string">"2D shape"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Triangle</span>(<span class="params">side, height</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.side = side;</div><div class="line">    <span class="keyword">this</span>.height = height;</div><div class="line">&#125;</div><div class="line">Triangle.prototype = TwoDShape.prototype;</div><div class="line">Triangle.prototype.constructor = Triangle;</div><div class="line">Triangle.prototype.name = <span class="string">"Triangle"</span>;</div><div class="line">Triangle.prototype.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height / <span class="number">2</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>测试结果仍然相同</p>
-
+<p>测试结果仍然相同，虽然这样做效率高了，但是这样做有一个问题，由于子对象与父对象指向的是同一个对象，所以一旦子对象对其原型进行了修改，父对象也会随即被改变，甚至所有的继承关系也都是如此。<br>例如下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Triangle.prototype.name = <span class="string">"Triangle"</span>;</div></pre></td></tr></table></figure></p>
+<p>这里对该对象的name属性进行了修改，于是Shape.prototype.name也随之改变了，也就是说当我们再用new Shape()新建对象时，新对象的name属性也会是”Triangle”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Shape();</div><div class="line">s.name;<span class="comment">//Triangle</span></div></pre></td></tr></table></figure></p>
+<h2 id="四、临时构造器"><a href="#四、临时构造器" class="headerlink" title="四、临时构造器"></a>四、临时构造器</h2>
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承/" data-id="civmcr6y2000304do9peruy72" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承/" data-id="civmd8dhi0003a8dok7xxaka5" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -203,7 +204,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civmcr6xt000104dom9qdqrpb" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civmd8dhb0001a8dodsel34qk" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -283,7 +284,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civmcr6xm000004do4wyeyyo7" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civmd8dh50000a8dok04xghgn" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -353,7 +354,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civmcr6y3000404donopq8j5z" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civmd8di00005a8dorqrvtlng" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -403,7 +404,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civmcr6ye000504doa5quc267" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civmd8dhs0004a8domueobtnd" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -459,7 +460,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civmcr6xw000204do4dfxei13" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civmd8dhf0002a8do9l8ozy0u" class="article-share-link">分享到</a>
         
       </div>
     </footer>
