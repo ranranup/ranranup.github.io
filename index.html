@@ -126,7 +126,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解/" data-id="civmewm610003v8doe336sd0a" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解/" data-id="civmfmw9y0004z8downjd5zle" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -193,16 +193,16 @@
 <p>对于数据属性，可以取得：configurable,enumberable,writable和value；  </p>
 <p>对于访问器属性，可以取得：configurable,enumberable,get和set。  </p>
 <h3 id="获取Configurable值"><a href="#获取Configurable值" class="headerlink" title="获取Configurable值"></a>获取Configurable值</h3><p><em>ES5为我们提供了Object.getOwnPropertyDescriptor(object, property)来获取内部属性</em>   </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;<span class="attr">name</span>:<span class="string">'wenzi'</span>&#125;;     </div><div class="line"><span class="keyword">var</span> desp = <span class="built_in">Object</span>.getOwnPropertyDescriptor(person, <span class="string">'name'</span>); <span class="comment">// person中的name属性    </span></div><div class="line"><span class="built_in">console</span>.log( desp );<span class="comment">// &#123;value: "wenzi", writable: true, enumerable: true, configurable: true&#125;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;<span class="attr">name</span>:<span class="string">'wenzi'</span>&#125;;     </div><div class="line"><span class="keyword">var</span> desp = <span class="built_in">Object</span>.getOwnPropertyDescriptor(person, <span class="string">'name'</span>); <span class="comment">// person中的name属性    </span></div><div class="line"><span class="built_in">console</span>.log( desp );<span class="comment">// &#123;value: "wenzi", writable: true, enumerable: true, configurable: true&#125;    </span></div><div class="line"><span class="built_in">console</span>.log( person.name ); <span class="comment">// wenzi  </span></div><div class="line"><span class="built_in">console</span>.log( <span class="keyword">delete</span> person.name );  <span class="comment">// true，删除成功   </span></div><div class="line"><span class="built_in">console</span>.log( person.name ); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
 <p>通过Object.getOwnPropertyDescriptor(object, property)我们能够获取到4个内部属性，configurable控制着变量或属性是否可被删除。这个例子中，person.name的configurable是true，则说明是可以被删除的。     </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log( person.name ); <span class="comment">// wenzi  </span></div><div class="line"><span class="built_in">console</span>.log( <span class="keyword">delete</span> person.name );  <span class="comment">// true，删除成功   </span></div><div class="line"><span class="built_in">console</span>.log( person.name ); <span class="comment">// undefined    </span></div><div class="line"><span class="string">``</span><span class="string">`       </span></div><div class="line"></div><div class="line">### 面试题</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript  </div><div class="line">a = <span class="number">1</span>;   </div><div class="line"><span class="keyword">var</span> desp = <span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="built_in">window</span>, <span class="string">'a'</span>);   </div><div class="line"><span class="built_in">console</span>.log( desp.configurable );   <span class="comment">// true，可以删除    </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> b = <span class="number">2</span>;    </div><div class="line"><span class="keyword">var</span> desp = <span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="built_in">window</span>, <span class="string">'b'</span>);   </div><div class="line"><span class="built_in">console</span>.log( desp.configurable );   <span class="comment">// false，不能删除</span></div></pre></td></tr></table></figure>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">1</span>;   </div><div class="line"><span class="keyword">var</span> desp = <span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="built_in">window</span>, <span class="string">'a'</span>);   </div><div class="line"><span class="built_in">console</span>.log( desp.configurable );   <span class="comment">// true，可以删除    </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> b = <span class="number">2</span>;    </div><div class="line"><span class="keyword">var</span> desp = <span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="built_in">window</span>, <span class="string">'b'</span>);   </div><div class="line"><span class="built_in">console</span>.log( desp.configurable );   <span class="comment">// false，不能删除</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civmewm5v0001v8donfzvt17b" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civmfmw9g0000z8dowpppcq2h" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -282,7 +282,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civmewm5o0000v8dod83ohagp" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civmfmw9m0001z8doreg9fjqq" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -352,7 +352,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civmewm6h0005v8do63ihy66p" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civmfmwa10005z8dokapfkwmz" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -402,7 +402,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civmewm620004v8docf4ml715" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civmfmw9v0003z8doe2svmm6h" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -458,7 +458,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civmewm5y0002v8dovstyykjt" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civmfmw9r0002z8do3avku9t8" class="article-share-link">分享到</a>
         
       </div>
     </footer>
