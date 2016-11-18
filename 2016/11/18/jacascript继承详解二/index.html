@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
-  <title>子对象访问父类方法 | ranran的博客</title>
+  <title>javascript详解二 | ranran的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象即：Child.uber = Parent.prototype;123456789101112131415161718192021222324252627282930313233343536373839function Shape() &amp;#123;&amp;#125;;Shape.prototype.name = &quot;shape&quot;;/*原型链上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="子对象访问父类方法">
-<meta property="og:url" content="http://yoursite.com/2016/11/18/子对象访问父类对象/index.html">
+<meta property="og:title" content="javascript详解二">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/jacascript继承详解二/index.html">
 <meta property="og:site_name" content="ranran的博客">
 <meta property="og:description" content="在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象即：Child.uber = Parent.prototype;123456789101112131415161718192021222324252627282930313233343536373839function Shape() &amp;#123;&amp;#125;;Shape.prototype.name = &quot;shape&quot;;/*原型链上">
-<meta property="og:updated_time" content="2016-11-18T08:19:03.173Z">
+<meta property="og:updated_time" content="2016-11-18T13:47:16.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="子对象访问父类方法">
+<meta name="twitter:title" content="javascript详解二">
 <meta name="twitter:description" content="在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象即：Child.uber = Parent.prototype;123456789101112131415161718192021222324252627282930313233343536373839function Shape() &amp;#123;&amp;#125;;Shape.prototype.name = &quot;shape&quot;;/*原型链上">
   
   
@@ -75,9 +75,9 @@
 </header>
 
     <div class="outer">
-      <section id="main"><article id="post-子对象访问父类对象" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-jacascript继承详解二" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <h3 href="/2016/11/18/子对象访问父类对象/" class="article-date">
+    <h3 href="/2016/11/18/jacascript继承详解二/" class="article-date">
   <time datetime="2016-11-18T06:35:50.906Z" itemprop="datePublished">2016-11-18</time>
 </h3>
     
@@ -91,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      子对象访问父类方法
+      javascript详解二
     </h1>
   
 
@@ -107,13 +107,16 @@
 <h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><p><em>在jQuery的较新版本中，继承关系的实现通常都是采用深拷贝的形式</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">p, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> c = c || &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> p[i] === <span class="string">'object'</span>) &#123;</div><div class="line">            c[i] = (p[i].constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;;</div><div class="line">            deepCopy(p[i], c[i]);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            c[i] = p[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> c;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h4><p><em>将父对象设置成子对象的原型</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Object</span>(<span class="params">o</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    F.prototype = o;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><em>如果需要访问uber属性，则代码如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> n;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    F.prototype = o;</div><div class="line">    n = <span class="keyword">new</span> F();</div><div class="line">    n.uber = o;</div><div class="line">    <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="原型继承与属性拷贝的混合"><a href="#原型继承与属性拷贝的混合" class="headerlink" title="原型继承与属性拷贝的混合"></a>原型继承与属性拷贝的混合</h4><h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4><h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><h4 id="构造器借用"><a href="#构造器借用" class="headerlink" title="构造器借用"></a>构造器借用</h4><h4 id="借用构造器与原型复制"><a href="#借用构造器与原型复制" class="headerlink" title="借用构造器与原型复制"></a>借用构造器与原型复制</h4>
+<h4 id="原型继承与属性拷贝的混合"><a href="#原型继承与属性拷贝的混合" class="headerlink" title="原型继承与属性拷贝的混合"></a>原型继承与属性拷贝的混合</h4><p><em>1. 使用原型继承的方式克隆（clone）现存对象</em><br><em>2. 而对其他对象使用属性拷贝（copy）的方式</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectPlus</span>(<span class="params">o, stuff</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> n;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">  F.prototype = o;</div><div class="line">  n = <span class="keyword">new</span> F();</div><div class="line">  n.uber = o;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> stuff) &#123;</div><div class="line">    n[i] = stuff[i];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>创建一个基本对象Shape，测试上述方法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Shape = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"Shape"</span>,</div><div class="line">  <span class="attr">toString</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">   &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> TwoDee = objectPlus(Shape, &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"2D Shape"</span>,</div><div class="line">  <span class="attr">toString</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.uber.toString() + <span class="string">", "</span> + <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> Triangle = objectPlus(TwoDee, &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"Triangle"</span>,</div><div class="line">  <span class="attr">getArea</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height / <span class="number">2</span>;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">side</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">height</span>: <span class="number">0</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> my = objectPlus(Triangle, &#123;<span class="attr">side</span>:<span class="number">4</span>, <span class="attr">height</span>: <span class="number">4</span>&#125;);</div><div class="line">my.toString();<span class="comment">//Shape, 2D Shape, Triangle, Triangle</span></div></pre></td></tr></table></figure></p>
+<p><em>Triangle的name属性被重复两次，是因为我们在具体实例化时是继承于Triangle对象的，所以这里多了一层继承关系，我们也可以给实例一个新的name属性，如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = objectPlus(Triangle, &#123;<span class="attr">side</span>:<span class="number">4</span>, <span class="attr">height</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">"my"</span>&#125;);</div><div class="line">my.toString();<span class="comment">//Shape, 2D Shape, Triangle, my</span></div></pre></td></tr></table></figure></p>
+<h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4><h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><h4 id="构造器借用"><a href="#构造器借用" class="headerlink" title="构造器借用"></a>构造器借用</h4><h4 id="借用构造器与原型复制"><a href="#借用构造器与原型复制" class="headerlink" title="借用构造器与原型复制"></a>借用构造器与原型复制</h4>
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/18/子对象访问父类对象/" data-id="civniladt0005agdok37pfamj" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civnuc90800002wdo6ek9lg17" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -125,9 +128,9 @@
 <nav id="article-nav">
   
   
-    <a href="/2016/11/16/javascript继承详解/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/11/16/javascript继承详解一/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">javascript 继承详解</div>
+      <div class="article-nav-title">javascript 继承详解一</div>
     </a>
   
 </nav>
@@ -147,11 +150,11 @@
       <ul>
         
           <li>
-            <a href="/2016/11/18/子对象访问父类对象/">子对象访问父类方法</a>
+            <a href="/2016/11/18/jacascript继承详解二/">javascript详解二</a>
           </li>
         
           <li>
-            <a href="/2016/11/16/javascript继承详解/">javascript 继承详解</a>
+            <a href="/2016/11/16/javascript继承详解一/">javascript 继承详解一</a>
           </li>
         
           <li>
