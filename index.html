@@ -112,7 +112,8 @@
 <p><em>创建一个基本对象Shape，测试上述方法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Shape = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"Shape"</span>,</div><div class="line">  <span class="attr">toString</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">   &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> TwoDee = objectPlus(Shape, &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"2D Shape"</span>,</div><div class="line">  <span class="attr">toString</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.uber.toString() + <span class="string">", "</span> + <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> Triangle = objectPlus(TwoDee, &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"Triangle"</span>,</div><div class="line">  <span class="attr">getArea</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height / <span class="number">2</span>;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">side</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">height</span>: <span class="number">0</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> my = objectPlus(Triangle, &#123;<span class="attr">side</span>:<span class="number">4</span>, <span class="attr">height</span>: <span class="number">4</span>&#125;);</div><div class="line">my.toString();<span class="comment">//Shape, 2D Shape, Triangle, Triangle</span></div></pre></td></tr></table></figure></p>
 <p><em>Triangle的name属性被重复两次，是因为我们在具体实例化时是继承于Triangle对象的，所以这里多了一层继承关系，我们也可以给实例一个新的name属性，如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = objectPlus(Triangle, &#123;<span class="attr">side</span>:<span class="number">4</span>, <span class="attr">height</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">"my"</span>&#125;);</div><div class="line">my.toString();<span class="comment">//Shape, 2D Shape, Triangle, my</span></div></pre></td></tr></table></figure></p>
 <h3 id="九、多重继承法"><a href="#九、多重继承法" class="headerlink" title="九、多重继承法"></a>九、多重继承法</h3><p><em>基本形式如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">multi</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> n = &#123;&#125;, stuff, j = <span class="number">0</span>;</div><div class="line">    len = <span class="built_in">arguments</span>.length;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; len; j++) &#123;</div><div class="line">        stuff = <span class="built_in">arguments</span>[j];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> stuff) &#123;</div><div class="line">            n[i] = stuff[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>多重继承里，multi()中的循环是按照对象的输入顺序进行遍历的，如果其中有两个对象拥有相同的实现，通常以后一个对象为准。<br><em>在这里，我们或许需要了解一种叫做混合插入的技术，这项技术在一些语言（比如Ruby）中非常受欢迎，我们可以将其看作一种为对象提供某些使用功能的技术，只不过，它并不是通过子对象的继承与扩展来完成的。我们所讨论的多重继承，实际上正式基于这种技术理念来实现的。也就是说，每当我们新建一个对象时，可以选择将其他对象的内容混合到我们的新对象中去，只要将它们全部传递给multi()函数，我们就可以在不建立相关继承关系树的情况下获得这些对象的功能。</em></p>
+<p>多重继承里，multi()中的循环是按照对象的输入顺序进行遍历的，如果其中有两个对象拥有相同的实现，通常以后一个对象为准。   </p>
+<p><em>在这里，我们或许需要了解一种叫做混合插入的技术，这项技术在一些语言（比如Ruby）中非常受欢迎，我们可以将其看作一种为对象提供某些使用功能的技术，只不过，它并不是通过子对象的继承与扩展来完成的。我们所讨论的多重继承，实际上正式基于这种技术理念来实现的。也就是说，每当我们新建一个对象时，可以选择将其他对象的内容混合到我们的新对象中去，只要将它们全部传递给multi()函数，我们就可以在不建立相关继承关系树的情况下获得这些对象的功能。</em></p>
 <h3 id="十、寄生式继承法"><a href="#十、寄生式继承法" class="headerlink" title="十、寄生式继承法"></a>十、寄生式继承法</h3><p><em>基本形式如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parasite</span>(<span class="params">victim</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> that = object(victim);</div><div class="line">    that.more = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> that;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>该方法通过一个类似构造器的函数来创建对象。该函数会执行相应的对象拷贝，并对其进行扩展，然后返回该拷贝。</p>
 <h3 id="十一、构造器借用法"><a href="#十一、构造器借用法" class="headerlink" title="十一、构造器借用法"></a>十一、构造器借用法</h3><p><em>基本形式如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    Parent.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -125,15 +126,16 @@
 <li>基于对象工作的模式<br>当然，我们也可以根据以下条件对继承模式进行分类：</li>
 <li>是否使用原型</li>
 <li>是否使用原型拷贝</li>
-<li>两者都有（即执行原型属性拷贝）<h4 id="如何进行选择？"><a href="#如何进行选择？" class="headerlink" title="如何进行选择？"></a>如何进行选择？</h4>取决于设计风格、性能需求、具体项目任务及团队。如果习惯于从类的角度解决问题，可以选择基于构造器的工作模式；如果只关心“类”的某些具体实例，可以选择基于对象的模式。</li>
+<li>两者都有（即执行原型属性拷贝）</li>
 </ol>
+<font color="#ff0000">如何进行选择，取决于设计风格、性能需求、具体项目任务及团队。如果习惯于从类的角度解决问题，可以选择基于构造器的工作模式；如果只关心“类”的某些具体实例，可以选择基于对象的模式。</font>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civoyl9kx0001gwdoeqqvqjn7" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civoyrb6k000134dool9q30rp" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -207,7 +209,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civoyl9l00002gwdoted84u1g" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civoyrb6u000434do7mp7upx0" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -279,7 +281,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civoyl9km0000gwdo9n85mwn1" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civoyrb6o000234dobq6075lb" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -359,7 +361,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civoyl9l20003gwdo8trhllzi" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civoyrb6d000034dor51zvqnn" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -429,7 +431,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civoyl9lu0006gwdofwqzzw4u" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civoyrb77000634dodw7kxqy0" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -479,7 +481,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civoyl9l80005gwdojobibkcp" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civoyrb70000534dod9m3k6dr" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -535,7 +537,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civoyl9l40004gwdoekhrsgwr" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civoyrb6s000334doh3pvsg8s" class="article-share-link">分享到</a>
         
       </div>
     </footer>
