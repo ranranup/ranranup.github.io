@@ -73,6 +73,50 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-javascript继承案例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <h3 href="/2016/11/19/javascript继承案例/" class="article-date">
+  <time datetime="2016-11-19T08:44:24.525Z" itemprop="datePublished">2016-11-19</time>
+</h3>
+    
+  </div>
+  <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/19/javascript继承案例/">javascript继承案例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      <div class="article-footer-content">
+        
+        <a data-url="http://yoursite.com/2016/11/19/javascript继承案例/" data-id="civoyz0660005fsdoyho43c88" class="article-share-link">分享到</a>
+        
+      </div>
+    </footer>
+  </div>
+  </div>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-jacascript继承详解二" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <h3 href="/2016/11/18/jacascript继承详解二/" class="article-date">
@@ -135,7 +179,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civoyrb6k000134dool9q30rp" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civoyz0600002fsdotghrkhss" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -202,14 +246,15 @@
 <p><font color="#ff0000">注意：尽量将要共享的属性和方法添加到原型中，然后只围绕原型构建继承关系，不鼓励将对象的自身属性纳入继承关系，其背后的根源在于如果对象自身属性被设定得太过具体，会令其丧失可重用性。</font></p>
 <h4 id="在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象"><a href="#在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象" class="headerlink" title="在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象"></a>在构建继承关系的过程中，引入一个uber属性，指向父类的原型对象</h4><p><em>即：Child.uber = Parent.prototype;</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">Shape.prototype.name = <span class="string">"shape"</span>;</div><div class="line"><span class="comment">/*原型链上的所有toString()方法都会被调用*/</span></div><div class="line">Shape.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> result = [];</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.constructor.uber) &#123;</div><div class="line">    result[result.length] = <span class="keyword">this</span>.constructor.uber.toString();</div><div class="line">  &#125;</div><div class="line">  result[result.length] = <span class="keyword">this</span>.name;</div><div class="line">    <span class="keyword">return</span> result.join(<span class="string">', '</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">TwoDShape</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">F.prototype = Shape.prototype;</div><div class="line">TwoDShape.prototype = <span class="keyword">new</span> F();</div><div class="line">TwoDShape.prototype.constructor = TwoDShape;</div><div class="line">TwoDShape.uber = Shape.prototype;<span class="comment">//子类的uber属性指向父类的原型</span></div><div class="line"></div><div class="line">TwoDShape.prototype.name = <span class="string">"2D shape"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Triangle</span>(<span class="params">side, height</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.side = side;</div><div class="line">  <span class="keyword">this</span>.height = height;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">F.prototype = TwoDShape.prototype;</div><div class="line">Triangle.prototype = <span class="keyword">new</span> F();</div><div class="line">Triangle.prototype.constructor = Triangle;</div><div class="line">Triangle.uber = TwoDShape.prototype;<span class="comment">//子类的uber属性指向父类的原型</span></div><div class="line"></div><div class="line">Triangle.prototype.name = <span class="string">"Triangle"</span>;</div><div class="line">Triangle.prototype.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height / <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> my = <span class="keyword">new</span> Triangle(<span class="number">5</span>,<span class="number">10</span>);</div><div class="line">my.toString();<span class="comment">//shape, 2D shape, Triangle</span></div></pre></td></tr></table></figure></p>
 <h4 id="将继承部分封装成函数"><a href="#将继承部分封装成函数" class="headerlink" title="将继承部分封装成函数"></a>将继承部分封装成函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child, Parent</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    F.prototype = Parent.prototype;</div><div class="line">    Child.prototype = <span class="keyword">new</span> F();</div><div class="line">    Child.prototype.constructor = Child;</div><div class="line">    Child.uber = Parent.prototype;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="四、原型属性拷贝法"><a href="#四、原型属性拷贝法" class="headerlink" title="四、原型属性拷贝法"></a>四、原型属性拷贝法</h3><h4 id="将继承部分封装成函数-对只包含基本类型的对象比较好"><a href="#将继承部分封装成函数-对只包含基本类型的对象比较好" class="headerlink" title="将继承部分封装成函数,对只包含基本类型的对象比较好"></a>将继承部分封装成函数,对只包含基本类型的对象比较好</h4><p><em>这样使得属性查找操作更多的停留在对象本身，从而减少了原型链上的查找，基本形式如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend2</span>(<span class="params">Child, Parent</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> c = Child.prototype;</div><div class="line">    <span class="keyword">var</span> p = Paren.prototype;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</div><div class="line">        c[i] = p[i];</div><div class="line">    &#125;</div><div class="line">    c.buer = p;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="四、原型属性拷贝法"><a href="#四、原型属性拷贝法" class="headerlink" title="四、原型属性拷贝法"></a>四、原型属性拷贝法</h3><h4 id="将继承部分封装成函数-对只包含基本类型的对象比较好"><a href="#将继承部分封装成函数-对只包含基本类型的对象比较好" class="headerlink" title="将继承部分封装成函数,对只包含基本类型的对象比较好"></a>将继承部分封装成函数,对只包含基本类型的对象比较好</h4><p><em>基本形式如下：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend2</span>(<span class="params">Child, Parent</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> c = Child.prototype;</div><div class="line">    <span class="keyword">var</span> p = Paren.prototype;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</div><div class="line">        c[i] = p[i];</div><div class="line">    &#125;</div><div class="line">    c.buer = p;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>这样使得属性查找操作更多的停留在对象本身，从而减少了原型链上的查找</em></p>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civoyrb6u000434do7mp7upx0" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civoyz06b0007fsdox94zl16o" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -281,7 +326,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civoyrb6o000234dobq6075lb" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civoyz05x0001fsdo41ejq89x" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -361,7 +406,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civoyrb6d000034dor51zvqnn" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civoyz05q0000fsdo4uz19y43" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -431,7 +476,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civoyrb77000634dodw7kxqy0" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civoyz06a0006fsdooyualgzo" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -481,7 +526,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civoyrb70000534dod9m3k6dr" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civoyz0630004fsdonh1jel07" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -537,7 +582,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civoyrb6s000334doh3pvsg8s" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civoyz0620003fsdo922vjkrr" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -562,6 +607,10 @@
       <ul>
         
           <li>
+            <a href="/2016/11/19/javascript继承案例/">javascript继承案例</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/18/jacascript继承详解二/">javascript继承详解二</a>
           </li>
         
@@ -577,10 +626,6 @@
             <a href="/2016/10/30/MarkdownPro2安装/">MarkdownPro2安装</a>
           </li>
         
-          <li>
-            <a href="/2016/09/22/数据转换/">javascript 数据转换</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -592,7 +637,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
