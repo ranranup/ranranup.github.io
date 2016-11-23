@@ -115,13 +115,19 @@
 <p><em>将新建节点插入到body元素的第一个子节点的前面</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.appendChild(my, <span class="built_in">document</span>.body.firstChild);</div></pre></td></tr></table></figure></p>
 <p><em>纯DOM方法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</div><div class="line"><span class="keyword">var</span> t1 = <span class="built_in">document</span>.createTextNode(<span class="string">"新文本节点1"</span>);</div><div class="line"><span class="keyword">var</span> t2 = <span class="built_in">document</span>.createTextNode(<span class="string">"新文本节点2"</span>);</div><div class="line">p.appendChild(t1);</div><div class="line">p.appendChild(t2);</div><div class="line"><span class="built_in">document</span>.body.appendChild(p);</div><div class="line"><span class="built_in">document</span>.body.appendChild(p);</div></pre></td></tr></table></figure></p>
 <h3 id="7-克隆节点（cloneNode-）"><a href="#7-克隆节点（cloneNode-）" class="headerlink" title="7. 克隆节点（cloneNode()）"></a>7. 克隆节点（cloneNode()）</h3><p><em>cloneNode() 有一个布尔类型的参数， true 代表深拷贝（包括所有的子节点）， false 代表浅拷贝，只针对当前节点</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"p"</span>)[<span class="number">1</span>];</div><div class="line"><span class="built_in">document</span>.body.appendChild(e.cloneNode(<span class="literal">true</span>));</div></pre></td></tr></table></figure></p>
-<h3 id="8-移除节点（removeChild-）"><a href="#8-移除节点（removeChild-）" class="headerlink" title="8. 移除节点（removeChild()）"></a>8. 移除节点（removeChild()）</h3>
+<h3 id="8-移除节点（removeChild-）"><a href="#8-移除节点（removeChild-）" class="headerlink" title="8. 移除节点（removeChild()）"></a>8. 移除节点（removeChild()）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName[<span class="number">0</span>];</div><div class="line"><span class="keyword">var</span> removed = <span class="built_in">document</span>.body.removeChild(p);</div></pre></td></tr></table></figure>
+<p><em>虽然该节点已经不在DOM树中，但是仍然可以对其调用所有的DOM方法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">removed.firstChild;</div></pre></td></tr></table></figure></p>
+<h3 id="9-替换节点（replaceChild-）"><a href="#9-替换节点（replaceChild-）" class="headerlink" title="9. 替换节点（replaceChild()）"></a>9. 替换节点（replaceChild()）</h3><p><em>在移除节点的同时，将另一个节点放在该位置</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"P"</span>)[<span class="number">1</span>];</div><div class="line"><span class="keyword">var</span> replaced = <span class="built_in">document</span>.body.replaceChild(remove, p);</div></pre></td></tr></table></figure></p>
+<p>如果想将某个子树中的内容一并抹去，最便捷的方式是将它的 innerHTML 设置为空字符串<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.innerHTML = <span class="string">""</span>;</div></pre></td></tr></table></figure></p>
+<p>纯DOM删除的话，必须对所有的子节点进行遍历，逐个删除<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeAll</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="keyword">while</span> (n.firstChild) &#123;</div><div class="line">        n.removeChild(n.firstChild);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>现在，如果想删除body中所有的子节点，可以用 removeAll()</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">removeAll(<span class="built_in">document</span>.body);</div></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civv13mzp00003cdon7oo2zkc" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civv1vbq90000z4do4czi1kf7" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -196,7 +202,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civv13mzw00013cdoj6ynkotr" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civv1vbq90003z4dow15gnywc" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -271,7 +277,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civv13n0d00063cdo3t79mrox" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civv1vbqp0005z4dom8tmzlp8" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -343,7 +349,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civv13n0300033cdoe5n45psx" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civv1vbq90002z4do72cadjui" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -423,7 +429,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civv13n0000023cdo44bnj04n" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civv1vbq90001z4doxt6tee1r" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -493,7 +499,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civv13n0e00073cdol3dmmkr1" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civv1vbqp0007z4docas8x3uw" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -543,7 +549,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civv13n0a00053cdogv2mk0ti" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civv1vbqp0006z4dozhwe9kjb" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -599,7 +605,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civv13n0500043cdo8n4061tw" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civv1vbq90004z4donkqblyv5" class="article-share-link">分享到</a>
         
       </div>
     </footer>
