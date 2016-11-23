@@ -19,7 +19,7 @@ firstChild相当于 childNodes[0] , lastC">
 123var bd = doucument.body;bd.childNodes[0].nextSibling;bd.previousSibling;
 2. 访问首尾节点firstChild &amp;amp;&amp;amp; lastChild
 firstChild相当于 childNodes[0] , lastC">
-<meta property="og:updated_time" content="2016-11-23T14:02:25.029Z">
+<meta property="og:updated_time" content="2016-11-23T14:31:34.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM操作">
 <meta name="twitter:description" content="1. 访问兄弟节点nextSibling &amp;amp;&amp;amp; previousSibling
@@ -121,16 +121,18 @@ firstChild相当于 childNodes[0] , lastC">
 <h3 id="5-修改样式"><a href="#5-修改样式" class="headerlink" title="5. 修改样式"></a>5. 修改样式</h3><p>style</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName[<span class="number">0</span>];</div><div class="line">p.style.border = <span class="string">"1px solid #ccc"</span>;</div></pre></td></tr></table></figure>
 <p><em>如果是有短横线的css属性，js中是不可以用的，但是可以将短横线后面的第一个字母大写，比如： padding-top 可以写成 paddingTop</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName[<span class="number">0</span>];</div><div class="line">p.style.border = <span class="string">"1px solid #ccc"</span>;</div></pre></td></tr></table></figure></p>
-<h3 id="6-新建DOM节点"><a href="#6-新建DOM节点" class="headerlink" title="6. 新建DOM节点"></a>6. 新建DOM节点</h3><p>createElement &amp;&amp; appendChild</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</div><div class="line">my.innerHTML = <span class="string">"我是新建的节点哦~"</span>;</div></pre></td></tr></table></figure>
-<p><em>将新建的节点添加到DOM树结构中，这里是添加到了body最后一个子节点的后面</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.appendChild(my);</div></pre></td></tr></table></figure></p>
-
+<h3 id="6-新建和插入DOM节点"><a href="#6-新建和插入DOM节点" class="headerlink" title="6. 新建和插入DOM节点"></a>6. 新建和插入DOM节点</h3><p>createElement() &amp;&amp; appendChild() &amp;&amp; insertBefore()<br><em>appendChild() 只能将新节点添加到指定节点的末端， insertBefore() 可以精确地控制插入节点的位置，它比 appendChild() 多一个参数，该参数用于指定将新节点插入到哪一个元素的前面</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</div><div class="line">my.innerHTML = <span class="string">"我是新建的节点哦~"</span>;</div></pre></td></tr></table></figure></p>
+<p><em>将新建的节点添加到DOM树结构中，这里是添加到了body最后一个子节点的后面</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</div><div class="line"><span class="built_in">document</span>.body.appendChild(my);</div></pre></td></tr></table></figure></p>
+<p><em>将新建节点插入到body元素的第一个子节点的前面</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.appendChild(my, <span class="built_in">document</span>.body.firstChild);</div></pre></td></tr></table></figure></p>
+<p><em>纯DOM方法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</div><div class="line"><span class="keyword">var</span> t1 = <span class="built_in">document</span>.createTextNode(<span class="string">"新文本节点1"</span>);</div><div class="line"><span class="keyword">var</span> t2 = <span class="built_in">document</span>.createTextNode(<span class="string">"新文本节点2"</span>);</div><div class="line">p.appendChild(t1);</div><div class="line">p.appendChild(t2);</div><div class="line"><span class="built_in">document</span>.body.appendChild(p);</div><div class="line"><span class="built_in">document</span>.body.appendChild(p);</div></pre></td></tr></table></figure></p>
+<h3 id="7-克隆节点（cloneNode-）"><a href="#7-克隆节点（cloneNode-）" class="headerlink" title="7. 克隆节点（cloneNode()）"></a>7. 克隆节点（cloneNode()）</h3><p><em>cloneNode() 有一个布尔类型的参数， true 代表深拷贝（包括所有的子节点）， false 代表浅拷贝，只针对当前节点</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"p"</span>)[<span class="number">1</span>];</div><div class="line"><span class="built_in">document</span>.body.appendChild(e.cloneNode(<span class="literal">true</span>));</div></pre></td></tr></table></figure></p>
+<h3 id="8-移除节点（removeChild-）"><a href="#8-移除节点（removeChild-）" class="headerlink" title="8. 移除节点（removeChild()）"></a>8. 移除节点（removeChild()）</h3>
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civv023wy00001kdo1wh4hk9m" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civv13mzp00003cdon7oo2zkc" class="article-share-link">分享到</a>
         
       </div>
     </footer>
