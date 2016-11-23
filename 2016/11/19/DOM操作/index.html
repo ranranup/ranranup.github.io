@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <title>DOM操作 | ranran的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="访问兄弟节点nextSiblingpreviousSibling123var bd = doucument.body;bd.childNodes[0].nextSibling;bd.previousSibling;
+访问首尾节点firstChildlastChildfirstChild相当于childNodes[0],lastChild相当于childNodes[childNodes.length">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM操作">
+<meta property="og:url" content="http://yoursite.com/2016/11/19/DOM操作/index.html">
+<meta property="og:site_name" content="ranran的博客">
+<meta property="og:description" content="访问兄弟节点nextSiblingpreviousSibling123var bd = doucument.body;bd.childNodes[0].nextSibling;bd.previousSibling;
+访问首尾节点firstChildlastChildfirstChild相当于childNodes[0],lastChild相当于childNodes[childNodes.length">
+<meta property="og:updated_time" content="2016-11-23T13:37:15.618Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM操作">
+<meta name="twitter:description" content="访问兄弟节点nextSiblingpreviousSibling123var bd = doucument.body;bd.childNodes[0].nextSibling;bd.previousSibling;
+访问首尾节点firstChildlastChildfirstChild相当于childNodes[0],lastChild相当于childNodes[childNodes.length">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+  
+
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <nav id="upper-nav" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <div class="sub-nav">
+        
+        
+          <a id="nav-github" class="nav-icon" href="https://github.com/ranranup"></a>
+        
+      </div>
+    </nav>
+    <div id="header-title">
+      
+        <h1 id="blog-title-wrap">
+          <a href="/" id="blog-title">冉冉的个人博客</a>
+        </h1>
+      
+    </div>
+    <!-- <div id="contenedor">
+      <ul class="cube">
+        <li class="cara">Star</li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+      </ul>
+    </div> -->
+    <nav id="main-nav">
+      
+        <a class="main-nav-link" href="/">首页</a>
+      
+        <a class="main-nav-link" href="/archives">归档</a>
+      
+        <a class="main-nav-link" href="/categories">分类</a>
+      
+      <!-- <a class="main-nav-link st-search-show-outputs">Search</a> -->
+    </nav>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <h3 href="/2016/11/19/DOM操作/" class="article-date">
+  <time datetime="2016-11-19T08:44:24.525Z" itemprop="datePublished">2016-11-19</time>
+</h3>
+    
+  </div>
+  <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <h3 id="访问兄弟节点"><a href="#访问兄弟节点" class="headerlink" title="访问兄弟节点"></a>访问兄弟节点</h3><p>nextSibling<br>previousSibling<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bd = doucument.body;</div><div class="line">bd.childNodes[<span class="number">0</span>].nextSibling;</div><div class="line">bd.previousSibling;</div></pre></td></tr></table></figure></p>
+<h3 id="访问首尾节点"><a href="#访问首尾节点" class="headerlink" title="访问首尾节点"></a>访问首尾节点</h3><p>firstChild<br>lastChild<br><em>firstChild相当于childNodes[0],lastChild相当于childNodes[childNodes.length-1]</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bd = doucument.body;</div><div class="line">bd.firstChild;</div><div class="line">bd.lastChild;</div></pre></td></tr></table></figure></p>
+<h3 id="遍历DOM"><a href="#遍历DOM" class="headerlink" title="遍历DOM"></a>遍历DOM</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">walkDOM</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">do</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">    <span class="keyword">if</span>(n.hasChildNodes()) &#123;</div><div class="line">      walkDOM(n.firstChild)</div><div class="line">    &#125;</div><div class="line">  &#125;<span class="keyword">while</span>(n = n.nextSibling)</div><div class="line">&#125;</div><div class="line"></div><div class="line">walkDOM(<span class="built_in">document</span>.documentElement);</div><div class="line">walkDOM(<span class="built_in">document</span>.body);</div></pre></td></tr></table></figure>
+<h3 id="修改DOM节点"><a href="#修改DOM节点" class="headerlink" title="修改DOM节点"></a>修改DOM节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"我时修改后的内容~"</span>;</div></pre></td></tr></table></figure>
+<p><em>innerHTML可以接收任何HTML代码，所以我们也可以这么写</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"&lt;em&gt;我时修改后的内容~&lt;em&gt;"</span>;</div></pre></td></tr></table></figure></p>
+<p><em>也可以使用nodeValue属性对文本进行修改</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my.firstChild.nodeValue = <span class="string">"呀，我是修改后的内容！"</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <div class="article-footer-content">
+        
+        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civuz6jup0000m4do188qnmyp" class="article-share-link">分享到</a>
+        
+      </div>
+    </footer>
+  </div>
+  </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/18/jacascript继承详解二/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">javascript继承详解二</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/19/DOM操作/">DOM操作</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/18/jacascript继承详解二/">javascript继承详解二</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/16/javascript继承详解一/">javascript 继承详解一</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/15/javascript内建属性/">javascript 内建属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/30/MarkdownPro2安装/">MarkdownPro2安装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ranran<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/categories" class="mobile-nav-link">分类</a>
+  
+  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
+</nav>
+
+  
+
+<!-- totop start -->
+<div id="totop">
+	<a title="返回顶部"></a>
+</div>
+<!-- totop end -->
+
+<!-- swiftype search start -->
+
+<!-- swiftype search end -->
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

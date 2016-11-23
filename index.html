@@ -73,9 +73,9 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-javascript继承案例" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <h3 href="/2016/11/19/javascript继承案例/" class="article-date">
+    <h3 href="/2016/11/19/DOM操作/" class="article-date">
   <time datetime="2016-11-19T08:44:24.525Z" itemprop="datePublished">2016-11-19</time>
 </h3>
     
@@ -89,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/javascript继承案例/">javascript继承案例</a>
+      <a class="article-title" href="/2016/11/19/DOM操作/">DOM操作</a>
     </h1>
   
 
@@ -98,13 +98,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-        
+        <h3 id="访问兄弟节点"><a href="#访问兄弟节点" class="headerlink" title="访问兄弟节点"></a>访问兄弟节点</h3><p>nextSibling<br>previousSibling<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bd = doucument.body;</div><div class="line">bd.childNodes[<span class="number">0</span>].nextSibling;</div><div class="line">bd.previousSibling;</div></pre></td></tr></table></figure></p>
+<h3 id="访问首尾节点"><a href="#访问首尾节点" class="headerlink" title="访问首尾节点"></a>访问首尾节点</h3><p>firstChild<br>lastChild<br><em>firstChild相当于childNodes[0],lastChild相当于childNodes[childNodes.length-1]</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bd = doucument.body;</div><div class="line">bd.firstChild;</div><div class="line">bd.lastChild;</div></pre></td></tr></table></figure></p>
+<h3 id="遍历DOM"><a href="#遍历DOM" class="headerlink" title="遍历DOM"></a>遍历DOM</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">walkDOM</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">do</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">    <span class="keyword">if</span>(n.hasChildNodes()) &#123;</div><div class="line">      walkDOM(n.firstChild)</div><div class="line">    &#125;</div><div class="line">  &#125;<span class="keyword">while</span>(n = n.nextSibling)</div><div class="line">&#125;</div><div class="line"></div><div class="line">walkDOM(<span class="built_in">document</span>.documentElement);</div><div class="line">walkDOM(<span class="built_in">document</span>.body);</div></pre></td></tr></table></figure>
+<h3 id="修改DOM节点"><a href="#修改DOM节点" class="headerlink" title="修改DOM节点"></a>修改DOM节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"我时修改后的内容~"</span>;</div></pre></td></tr></table></figure>
+<p><em>innerHTML可以接收任何HTML代码，所以我们也可以这么写</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"&lt;em&gt;我时修改后的内容~&lt;em&gt;"</span>;</div></pre></td></tr></table></figure></p>
+<p><em>也可以使用nodeValue属性对文本进行修改</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my.firstChild.nodeValue = <span class="string">"呀，我是修改后的内容！"</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/19/javascript继承案例/" data-id="civoyz0660005fsdoyho43c88" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civuz6jup0000m4do188qnmyp" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -179,7 +185,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civoyz0600002fsdotghrkhss" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/18/jacascript继承详解二/" data-id="civuz6jzq0003m4doniz80rzi" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -254,7 +260,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civoyz06b0007fsdox94zl16o" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/16/javascript继承详解一/" data-id="civuz6jzt0004m4dogvok1lnp" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -326,7 +332,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civoyz05x0001fsdo41ejq89x" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/15/javascript内建属性/" data-id="civuz6jzh0001m4doivtvubj0" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -406,7 +412,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civoyz05q0000fsdo4uz19y43" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/10/30/MarkdownPro2安装/" data-id="civuz6jzm0002m4dog0zsag7a" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -476,7 +482,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civoyz06a0006fsdooyualgzo" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/数据转换/" data-id="civuz6k0h0007m4dotfl3zydf" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -526,7 +532,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civoyz0630004fsdonh1jel07" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/动态下拉框/" data-id="civuz6k020005m4do3baiif88" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -582,7 +588,7 @@
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civoyz0620003fsdo922vjkrr" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/22/javascript排序/" data-id="civuz6k0e0006m4dov4jk1bpj" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -607,7 +613,7 @@
       <ul>
         
           <li>
-            <a href="/2016/11/19/javascript继承案例/">javascript继承案例</a>
+            <a href="/2016/11/19/DOM操作/">DOM操作</a>
           </li>
         
           <li>
