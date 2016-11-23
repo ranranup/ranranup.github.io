@@ -27,7 +27,7 @@ previousSibling123var bd = doucument.body;bd.childNodes[0].nextSibling;bd.previo
 2. 访问首尾节点
 firstChild
 lastChildfirstChild相当于 childNodes[0] , lastChild 相当于 childNodes[">
-<meta property="og:updated_time" content="2016-11-23T13:44:15.473Z">
+<meta property="og:updated_time" content="2016-11-23T13:46:32.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM操作">
 <meta name="twitter:description" content="1. 访问兄弟节点
@@ -132,18 +132,24 @@ lastChildfirstChild相当于 childNodes[0] , lastChild 相当于 childNodes[">
 </li>
 </ul>
 <h3 id="3-遍历DOM"><a href="#3-遍历DOM" class="headerlink" title="3. 遍历DOM"></a>3. 遍历DOM</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">walkDOM</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">do</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">    <span class="keyword">if</span>(n.hasChildNodes()) &#123;</div><div class="line">      walkDOM(n.firstChild)</div><div class="line">    &#125;</div><div class="line">  &#125;<span class="keyword">while</span>(n = n.nextSibling)</div><div class="line">&#125;</div><div class="line"></div><div class="line">walkDOM(<span class="built_in">document</span>.documentElement);</div><div class="line">walkDOM(<span class="built_in">document</span>.body);</div></pre></td></tr></table></figure>
-<h3 id="4-修改DOM节点"><a href="#4-修改DOM节点" class="headerlink" title="4. 修改DOM节点"></a>4. 修改DOM节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"我时修改后的内容~"</span>;</div></pre></td></tr></table></figure>
+<h3 id="4-修改DOM节点内容"><a href="#4-修改DOM节点内容" class="headerlink" title="4. 修改DOM节点内容"></a>4. 修改DOM节点内容</h3><h4 id="4-1-修改DOM节点内容"><a href="#4-1-修改DOM节点内容" class="headerlink" title="4.1 修改DOM节点内容"></a>4.1 修改DOM节点内容</h4><ul>
+<li>innerHTML<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"我时修改后的内容~"</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <p><em>innerHTML可以接收任何HTML代码，所以我们也可以这么写</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my = <span class="built_in">document</span>.getElementById(<span class="string">"idName"</span>);</div><div class="line">my.innerHTML = <span class="string">"&lt;em&gt;我时修改后的内容~&lt;em&gt;"</span>;</div></pre></td></tr></table></figure></p>
 <p><em>也可以使用nodeValue属性对文本进行修改</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my.firstChild.nodeValue = <span class="string">"呀，我是修改后的内容！"</span></div></pre></td></tr></table></figure></p>
-<h3 id="5-修改样式"><a href="#5-修改样式" class="headerlink" title="5. 修改样式"></a>5. 修改样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName[<span class="number">0</span>];</div><div class="line">p.style.border = <span class="string">"1px solid #ccc"</span>;</div></pre></td></tr></table></figure>
-<p>如果是有短横线的css属性，js中是不可以用的，但是可以将短横线后面的第一个字母大写，比如： padding-top 可以写成 paddingTop</p>
+<h4 id="4-2-修改样式"><a href="#4-2-修改样式" class="headerlink" title="4.2 修改样式"></a>4.2 修改样式</h4><ul>
+<li>style<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName[<span class="number">0</span>];</div><div class="line">p.style.border = <span class="string">"1px solid #ccc"</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果是有短横线的css属性，js中是不可以用的，但是可以将短横线后面的第一个字母大写，比如： padding-top 可以写成 paddingTop<br>var p = document.getElementsByTagName[0];<br>p.style.border = “1px solid #ccc”;<br>```</p>
 
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civuzes240000qwdocrqepane" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/11/19/DOM操作/" data-id="civuzhrjd0000okdoufp6eapc" class="article-share-link">分享到</a>
         
       </div>
     </footer>
