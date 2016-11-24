@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <title>javascript事件 | ranran的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 内联HTML属性法通过标签的特定属性来添加事件
+1&amp;lt;div onclick=&quot;alert(&apos;hello&apos;)&quot;&amp;gt;click&amp;lt;/div&amp;gt;
+2. 元素属性法事实上，这种方式比内联HTML属性法要好，因为它可以帮助我们理清  与相关 js 代码之间的关系，一般情况下，我们总是希望页面中的内容归 HTML、行为归 js、格式归 css ，并且三者之间能够彼此独立，互不干扰。12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript事件">
+<meta property="og:url" content="http://yoursite.com/2016/11/23/javascript事件/index.html">
+<meta property="og:site_name" content="ranran的博客">
+<meta property="og:description" content="1. 内联HTML属性法通过标签的特定属性来添加事件
+1&amp;lt;div onclick=&quot;alert(&apos;hello&apos;)&quot;&amp;gt;click&amp;lt;/div&amp;gt;
+2. 元素属性法事实上，这种方式比内联HTML属性法要好，因为它可以帮助我们理清  与相关 js 代码之间的关系，一般情况下，我们总是希望页面中的内容归 HTML、行为归 js、格式归 css ，并且三者之间能够彼此独立，互不干扰。12">
+<meta property="og:updated_time" content="2016-11-24T03:17:18.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript事件">
+<meta name="twitter:description" content="1. 内联HTML属性法通过标签的特定属性来添加事件
+1&amp;lt;div onclick=&quot;alert(&apos;hello&apos;)&quot;&amp;gt;click&amp;lt;/div&amp;gt;
+2. 元素属性法事实上，这种方式比内联HTML属性法要好，因为它可以帮助我们理清  与相关 js 代码之间的关系，一般情况下，我们总是希望页面中的内容归 HTML、行为归 js、格式归 css ，并且三者之间能够彼此独立，互不干扰。12">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+  
+
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <nav id="upper-nav" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <div class="sub-nav">
+        
+        
+          <a id="nav-github" class="nav-icon" href="https://github.com/ranranup"></a>
+        
+      </div>
+    </nav>
+    <div id="header-title">
+      
+        <h1 id="blog-title-wrap">
+          <a href="/" id="blog-title">冉冉的个人博客</a>
+        </h1>
+      
+    </div>
+    <!-- <div id="contenedor">
+      <ul class="cube">
+        <li class="cara">Star</li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+      </ul>
+    </div> -->
+    <nav id="main-nav">
+      
+        <a class="main-nav-link" href="/">首页</a>
+      
+        <a class="main-nav-link" href="/archives">归档</a>
+      
+        <a class="main-nav-link" href="/categories">分类</a>
+      
+      <!-- <a class="main-nav-link st-search-show-outputs">Search</a> -->
+    </nav>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-javascript事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <h3 href="/2016/11/23/javascript事件/" class="article-date">
+  <time datetime="2016-11-23T14:53:41.269Z" itemprop="datePublished">2016-11-23</time>
+</h3>
+    
+  </div>
+  <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript事件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <h3 id="1-内联HTML属性法"><a href="#1-内联HTML属性法" class="headerlink" title="1. 内联HTML属性法"></a>1. 内联HTML属性法</h3><p>通过标签的特定属性来添加事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('hello')"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2-元素属性法"><a href="#2-元素属性法" class="headerlink" title="2. 元素属性法"></a>2. 元素属性法</h3><p>事实上，这种方式比内联HTML属性法要好，因为它可以帮助我们理清 <div> 与相关 js 代码之间的关系，一般情况下，我们总是希望页面中的内容归 HTML、行为归 js、格式归 css ，并且三者之间能够彼此独立，互不干扰。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"su"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    var su = document.getElementById("su");</div><div class="line">    su.onclick = function() &#123;</div><div class="line">        alert("hello");</div><div class="line">        alert("haha");</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></div></p>
+<p><em>缺点是只允许我们指定一个处理函数，这样不太方便，所以我门需要使用 DOM 的事件监听器</em></p>
+<h3 id="3-DOM-事件监听器"><a href="#3-DOM-事件监听器" class="headerlink" title="3. DOM 事件监听器"></a>3. DOM 事件监听器</h3><p>addEventListener(参数1, 参数2, 参数3)  </p>
+<p><em>事件类型的参数：click等<br>函数指针：可以是function()这样的匿名函数，也可以是console.log()这样的现存函数<br>布尔类型的参数：决定代码是否采用捕捉法来处理事件（下一节会详细讲述）</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"su"</span>&gt;</span>click<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    var su = document.getElementById("su");</div><div class="line">    su.addEventListener('click', function() &#123;</div><div class="line">        alert("hello");</div><div class="line">    &#125;, false);</div><div class="line">    su.addEventListener('click', console.log, false);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><em>我们可以为一个事件指定多个监听器函数，它们的工作是彼此独立的，任何一个函数的加入或退出，都不会影响其他监听器的工作。</em></p>
+<h3 id="4-捕捉法和冒泡法"><a href="#4-捕捉法和冒泡法" class="headerlink" title="4. 捕捉法和冒泡法"></a>4. 捕捉法和冒泡法</h3><p>addEventListener 的第三个参数到底是什么？<br>假设我们有一个无序链接列表</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <div class="article-footer-content">
+        
+        <a data-url="http://yoursite.com/2016/11/23/javascript事件/" data-id="civvsha8k0000rodo5c03912o" class="article-share-link">分享到</a>
+        
+      </div>
+    </footer>
+  </div>
+  </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/19/javascript的DOM操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">javascript的DOM操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/23/javascript事件/">javascript事件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/javascript的DOM操作/">javascript的DOM操作</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/18/jacascript继承详解二/">javascript继承详解二</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/16/javascript继承详解一/">javascript 继承详解一</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/15/javascript内建属性/">javascript 内建属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ranran<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/categories" class="mobile-nav-link">分类</a>
+  
+  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
+</nav>
+
+  
+
+<!-- totop start -->
+<div id="totop">
+	<a title="返回顶部"></a>
+</div>
+<!-- totop end -->
+
+<!-- swiftype search start -->
+
+<!-- swiftype search end -->
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
