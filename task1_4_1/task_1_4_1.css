@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+.content {
+    background: #eee;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    left: -200px;
+    top: 50%;
+    margin-top: -100px;
+    left: 50%;
+    margin-left: -200px;
+    overflow: hidden;
+}
+.top-left {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0
+}
+.center {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+.left {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    margin-top: -50px;
+    left: 20px;
+}
+.right {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    margin-top: -50px;
+    left: 280px;
+}
+/* 空心圆 */
+.hollow-circle {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 50px;
+}
+/* 实心圆 */
+.filled-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background: yellow;
+}
+
+/* 半圆 */
+.semicircle {
+    width: 50px;
+    height: 100px;
+    border-radius: 50px 0 0 50px;
+    background: green;
+}
+
+/* 四分之一圆的实现方法是把高度和宽度设置为相等，只设置一个圆角，其半径等于高度或宽度 */
+.quadrant1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 0 0 50px;
+    background: red;
+}
+.quadrant2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px 0 0;
+    background: yellow;
+}
