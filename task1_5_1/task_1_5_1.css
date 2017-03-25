@@ -114,7 +114,7 @@ form p label {
     float: left;
 }
 form p textarea {
-    width: 200px;
+    width: 180px;
 }
 form .reminder {
     margin-left: 150px;
@@ -154,11 +154,11 @@ footer {
     position: relative;
     top:0;
     left: 0;
-    margin-right: 460px;
+    margin-right: 410px;
 }
 .right{
     position: absolute;
-    width: 400px;
+    width: 350px;
     top: 0;
     right: 0;
 }
