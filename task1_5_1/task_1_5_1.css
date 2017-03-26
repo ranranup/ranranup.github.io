@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0e0e0e;
+}
+.content {
+    background: #dedede;
+    width: 100%;
+    margin: 0 auto;
+}
+header {
+    background: #333;
+}
+nav {
+    overflow: hidden;
+    height: 50px;
+}
+header img {
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+nav ul li {
+    float: left;
+    margin-left: 25px;
+}
+nav ul li a {
+    color: #fff;
+    font-size: 10px;
+    text-decoration: none;
+}
+.active {
+    color: #ccc;
+}
+article, figure {
+    background: #fff;
+    margin: 15px 20px;
+    padding: 10px 20px 15px;
+}
+article h3 {
+    color: #8f919c;
+}
+article time {
+    color: #b6ab94;
+    font-size: 14px;
+}
+article img {
+    width: 40%;
+}
+article ul, article ul li {
+    list-style: none;
+}
+figure {
+    height: auto;
+    overflow: hidden;
+    zoom: 1;
+}
+figure p {
+    width: 120px;
+    text-align: center;
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 20px;
+}
+figure p img {
+    width: 90px;
+    padding: 5px 10px 10px;
+}
+figure p span {
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid #ccc;
+    height: 30px;
+    padding-left: 10px;
+}
+th {
+    background: #333;
+    color: #fff;
+    text-align: left;
+}
+th:hover, td:hover {
+    background: #ccc;
+    border: 1px solid #ccc;
+}
+tr:last-child {
+    font-weight: bold;
+}
+article .sign {
+    border: 2px solid #ccc;
+    display: inline;
+    margin-right: 10px;
+}
+article h4 {
+    display: inline;
+    height: 50px;
+    line-height: 50px;
+}
+
+form p label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    float: left;
+}
+form p textarea {
+    width: 180px;
+}
+form .reminder {
+    margin-left: 150px;
+    color: #7d9797;
+    font-size: 14px;
+    font-weight: normal;
+}
+form p:after {
+    content: " ";
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+article button {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #3355d0;
+    border-radius: 5px;
+    border: 0;
+}
+footer {
+    background: #000;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 15px;
+}
+.container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.left {
+    position: relative;
+    top:0;
+    left: 0;
+    margin-right: 410px;
+}
+.right{
+    position: absolute;
+    width: 350px;
+    top: 0;
+    right: 0;
+}
